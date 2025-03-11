@@ -13,7 +13,6 @@ app = Flask(__name__)
                                                                                                                                        
 # Configuration du module JWT
 app.config["JWT_SECRET_KEY"] = "Ma_clé_secrete"  # Clé secrète pour signer les tokens
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(hours=2)  # Jeton valide 2h
 jwt = JWTManager(app)
 
 

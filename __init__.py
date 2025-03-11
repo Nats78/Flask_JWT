@@ -11,8 +11,8 @@ from flask_jwt_extended import JWTManager
                                                                                                                                        
 app = Flask(__name__)                                                                                                                  
                                                                                                                                        
-# Configuration du module JWT
-app.config["JWT_SECRET_KEY"] = "Ma_clé_secrete"  # Ma clée privée
+app.config["JWT_SECRET_KEY"] = "Ma_clé_secrete"  # Clé secrète pour signer les tokens
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(hours=2)  # Jeton valide 2h
 jwt = JWTManager(app)
 
 @app.route('/')
@@ -30,7 +30,6 @@ def login():
 
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token)
-token = generer_jwt(3600)
 
 # Route protégée par un jeton valide
 @app.route("/protected", methods=["GET"])

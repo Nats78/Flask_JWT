@@ -15,6 +15,10 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "Ma_clé_secrete"  # Clé secrète pour signer les tokens
 jwt = JWTManager(app)
 
+# Fonction pour ajouter des rôles dans le JWT
+def add_role_to_token(username, role):
+    # On ajoute le rôle dans le token comme claim supplémentaire
+    return create_access_token(identity=username, additional_claims={"role": role})
 
 @app.route('/')
 def hello_world():

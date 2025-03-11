@@ -1,4 +1,3 @@
-Ca devrait être mon exercice 2 : 
 from typing import Any
  from typing import Optional
  import jwt

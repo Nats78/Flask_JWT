@@ -23,7 +23,7 @@ jwt = JWTManager(app)
 def hello_world():
     return render_template('accueil.html') 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["POST"]
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)

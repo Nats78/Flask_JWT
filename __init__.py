@@ -8,7 +8,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
-                                                                                                                                       
+from flask_jwt_extended.typing import ExpiresDelta                                                                                                                                       
 app = Flask(__name__)                                                                                                                  
                                                                                                                                        
 # Configuration du module JWT
@@ -30,7 +30,7 @@ def login():
     if username != "test" or password != "test":
         return jsonify({"msg": "Mauvais utilisateur ou mot de passe"}), 401
 
-    access_token = create_access_token(identity=username)
+    access_token = create_access_token(identity=username, expires_delta=False)
     return jsonify(access_token=access_token)
 
 # Route protégée par un jeton valide

@@ -9,7 +9,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
                                                                                                                                        
-app = Flak(__name__)                                                                                                                  
+app = Flask(__name__)                                                                                                                  
                                                                                                                                        
 # Configuration du module JWT
 app.config["JWT_SECRET_KEY"] = "Ma_clé_secrete"  # Ma clée privée

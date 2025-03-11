@@ -30,7 +30,7 @@ def login():
 
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token)
-
+token = generer_jwt(3600)
 
 # Route protégée par un jeton valide
 @app.route("/protected", methods=["GET"])
